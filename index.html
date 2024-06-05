@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <!-- google fount -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- google fount end -->
+
+    <!-- fontawosom -->
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <!-- fontawosom end -->
+
+    <!-- css -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- css end -->
+  </head>
+  <body>
+    <div class="container" id="login_container">
+      <div class="signin-signup">
+        <form action="" class="sign-in-form">
+          <h2 class="title">Sign in</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Email" id="email" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            value="Login"
+            class="btn"
+            onclick="loginUser()"
+          />
+          <p class="social-text">Or Sign in with social platform</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <p class="account-text">
+            Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a>
+          </p>
+        </form>
+        <form action="" class="sign-up-form">
+          <h2 class="title">Sign up</h2>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="text" placeholder="Email" required />
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              required
+            />
+          </div>
+          <input
+            type="submit"
+            value="Sign up"
+            class="btn"
+            onclick="loginUser()"
+          />
+          <p class="social-text">Or Sign in with social platform</p>
+          <div class="social-media">
+            <a href="#" class="social-icon">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="social-icon">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+          <p class="account-text">
+            Already have an account? <a href="#" id="sign-in-btn2">Sign in</a>
+          </p>
+        </form>
+      </div>
+      <!-- <div id="home_container" style="display:none;">
+          <h2>Welcome, <span id="user_email"></span></h2>
+          <textarea id="note" placeholder="Enter your note here"></textarea>
+          <button onclick="submitNote()">Add Note</button>
+          <ul id="list"></ul>
+          <button onclick="logout()">Logout</button>
+        </div> -->
+
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>Member of Brand?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              accusantium dolor, eos incidunt minima iure?
+            </p>
+            <button class="btn" id="sign-in-btn">Sign in</button>
+          </div>
+          <img src="undraw_online_learning_re_qw08.svg" alt="" class="image" />
+        </div>
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>New to Brand?</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+              accusantium dolor, eos incidunt minima iure?
+            </p>
+            <button class="btn" id="sign-up-btn">Sign up</button>
+          </div>
+          <img src="undraw_voice_interface_re_206s.svg" alt="" class="image" />
+        </div>
+      </div>
+    </div>
+
+    <div id="home_container" style="display: none" class="container-h">
+      <div class="head">
+        <h1>Hello, Good Morning</h1>
+        <p class="px-3" id="user_email"></p>
+        <span class="flex">
+          <button class="logout" onclick="logout()">Logout</button>
+        </span>
+      </div>
+
+      <div class="p-10">
+        <div>
+          <textarea
+            class="border p-4 w-full"
+            id="note"
+            rows="5"
+            placeholder="Add your notes"
+          ></textarea>
+          <div>
+            <button
+              onclick="submitNote()"
+              class="btn bg-blue-600 py-2 px-3 rounded text-white"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <ul id="list"></ul>
+      </div>
+    </div>
+    <!-- javaScript -->
+    <script src="app.js"></script>
+    <!-- javaScript end -->
+  </body>
+</html>
