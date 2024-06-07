@@ -128,25 +128,28 @@ function displayAllNotes() {
 }
 
 function displayUserNotes() {
-    var notes = localStorage.getItem("notes");
-    var list = document.getElementById("list");
-    var currentUserEmail = localStorage.getItem("email");
+  var notes = localStorage.getItem("notes");
+  var list = document.getElementById("list");
+  var currentUserEmail = localStorage.getItem("email");
+  var admin = localStorage.getItem("isAdmin");
 
-    if (notes) {
-        list.innerHTML = "";
-        notes = JSON.parse(notes);
-        notes.forEach(function(data, ind) {
-            if (data.email === currentUserEmail) {
-                var liElement = `
-                    <li class="border rounded p-2 my-2">
-                        <p class="font-medium">${data.note}</p>
-                        <p>${data.email}</p>
-                        <button onclick="deleteNote(${ind})" class="delete-btn">Delete</button>
-                    </li>`;
-                list.innerHTML += liElement;
-            }
-        });
-    }
+  if (notes) {
+    list.innerHTML = "";
+    notes = JSON.parse(notes);
+    // console.log(notes);
+    notes.forEach(function (data) {
+      console.log("data=>", admin);
+      if (data.email === currentUserEmail || data.email == admin) {
+        var liElement = ` 
+        <li class="border rounded p-2 my-2">
+        <p class = "font-medium">${data.note}</p> 
+            <p>${data.email}</p>
+            <button onclick="deleteNote()" class="delete-btn">Delete</button>
+          </li>`;
+        list.innerHTML += liElement;
+      }
+    });
+  }
 }
 
 function deleteNote(index) {
