@@ -115,13 +115,6 @@
           </p>
         </form>
       </div>
-      <!-- <div id="home_container" style="display:none;">
-          <h2>Welcome, <span id="user_email"></span></h2>
-          <textarea id="note" placeholder="Enter your note here"></textarea>
-          <button onclick="submitNote()">Add Note</button>
-          <ul id="list"></ul>
-          <button onclick="logout()">Logout</button>
-        </div> -->
 
       <div class="panels-container">
         <div class="panel left-panel">
@@ -158,6 +151,21 @@
         </span>
       </div>
 
+      <div class="category-box">
+        <select id="note-category">
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+      </select>
+      
+      <select id="filter-category">
+          <option value="All">All</option>
+          <option value="Work">Work</option>
+          <option value="Personal">Personal</option>
+          <option value="Urgent">Urgent</option>
+        </select>
+      </div>
+      
       <div class="p-10">
         <div>
           <textarea
